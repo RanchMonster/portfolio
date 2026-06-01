@@ -63,17 +63,15 @@ export async function getUserStats(): Promise<{
   total_stars: number;
 }> {
   try {
-    const userRes = await fetch(
-      "https://api.github.com/users/RanchMonster",
-      { next: { revalidate: 3600 } }
-    );
+    const userRes = await fetch("https://api.github.com/users/RanchMonster", {
+      next: { revalidate: 3600 },
+    });
     if (!userRes.ok) throw new Error(`GitHub user API responded with ${userRes.status}`);
     const user = await userRes.json();
 
-    const reposRes = await fetch(
-      "https://api.github.com/users/RanchMonster/repos?per_page=100",
-      { next: { revalidate: 3600 } }
-    );
+    const reposRes = await fetch("https://api.github.com/users/RanchMonster/repos?per_page=100", {
+      next: { revalidate: 3600 },
+    });
     if (!reposRes.ok) throw new Error(`GitHub repos API responded with ${reposRes.status}`);
     const repos: { stargazers_count: number }[] = await reposRes.json();
 
@@ -92,10 +90,9 @@ export async function getUserStats(): Promise<{
 
 export async function getRecentActivity(): Promise<GithubEvent[]> {
   try {
-    const res = await fetch(
-      "https://api.github.com/users/RanchMonster/events/public?per_page=7",
-      { next: { revalidate: 3600 } }
-    );
+    const res = await fetch("https://api.github.com/users/RanchMonster/events/public?per_page=7", {
+      next: { revalidate: 3600 },
+    });
     if (!res.ok) throw new Error(`GitHub events API responded with ${res.status}`);
 
     const raw: {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getUserStats, getRecentActivity } from "@/lib/github-stats";
 import { getRepos } from "@/lib/github";
+import EventView from "@/components/event-view";
 
 const languageColors: Record<string, string> = {
   JavaScript: "#f1e05a",
@@ -23,63 +24,73 @@ export default async function Home() {
   const repos = await getRepos();
 
   return (
-    <main className="flex-1 flex flex-col px-4">
-      <section className="relative flex-1 flex flex-col items-center justify-center min-h-[80vh] bg-grid overflow-hidden">
-        <div className="absolute top-6 left-6 text-text-muted opacity-30 text-xl select-none font-mono" aria-hidden="true">
-          ┌─────────────────────────────┐<br />
-          │ ~/portfolio                  │
+    <main className="flex flex-1 flex-col px-4">
+      <section className="bg-grid relative flex min-h-[80vh] flex-1 flex-col items-center justify-center overflow-hidden">
+        <div
+          className="text-text-muted absolute top-6 left-6 font-mono text-xl opacity-30 select-none"
+          aria-hidden="true"
+        >
+          ┌─────────────────────────────┐
+          <br />│ ~/portfolio │
         </div>
-        <div className="absolute bottom-6 right-6 text-text-muted opacity-30 text-xl select-none font-mono" aria-hidden="true">
+        <div
+          className="text-text-muted absolute right-6 bottom-6 font-mono text-xl opacity-30 select-none"
+          aria-hidden="true"
+        >
           └─────────────────────────────┘
         </div>
 
-        <div className="text-text-muted text-sm mb-1 animate-[fadeInUp_0.5s_ease-out] font-mono">
+        <div className="text-text-muted mb-1 animate-[fadeInUp_0.5s_ease-out] font-mono text-sm">
           <span className="text-accent-green">❯</span> cat about.txt
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-text-primary mb-2 animate-[fadeInUp_0.6s_ease-out] font-mono">
+        <h1 className="text-text-primary mb-2 animate-[fadeInUp_0.6s_ease-out] font-mono text-4xl font-bold sm:text-5xl md:text-6xl">
           Joshua Tucker
         </h1>
 
-        <h2 className="text-xl sm:text-2xl md:text-3xl text-accent-blue mb-6 font-mono">
+        <h2 className="text-accent-blue mb-6 font-mono text-xl sm:text-2xl md:text-3xl">
           <span
-            className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-accent-blue max-w-fit"
-            style={{ animation: "typing 3.5s steps(30) 0.8s forwards, blink 0.75s step-end infinite" }}
+            className="border-accent-blue inline-block max-w-fit overflow-hidden border-r-2 whitespace-nowrap"
+            style={{
+              animation: "typing 3.5s steps(30) 0.8s forwards, blink 0.75s step-end infinite",
+            }}
           >
-            Full-Stack Developer
+            Full-Stack Developer & Tech Enthusiast
           </span>
         </h2>
 
-        <p className="text-text-secondary text-sm sm:text-base mb-8 max-w-md text-center animate-[fadeInUp_0.8s_ease-out] font-mono">
+        <p className="text-text-secondary mb-8 max-w-md animate-[fadeInUp_0.8s_ease-out] text-center font-mono text-sm sm:text-base">
           Building web, mobile, and IoT solutions with clean, maintainable code.
         </p>
 
-        <div className="flex items-center justify-center gap-4 animate-[fadeInUp_1s_ease-out]">
+        <div className="flex animate-[fadeInUp_1s_ease-out] items-center justify-center gap-4">
           <Link
             href="/projects"
-            className="bg-accent-blue text-black px-6 py-3 rounded font-bold text-sm hover:shadow-[0_0_16px_rgba(86,156,214,0.6)] transition-all duration-300 font-mono"
+            className="bg-accent-blue rounded px-6 py-3 font-mono text-sm font-bold text-black transition-all duration-300 hover:shadow-[0_0_16px_rgba(86,156,214,0.6)]"
           >
             View Projects
           </Link>
           <Link
             href="/contact"
-            className="border border-border text-text-primary px-6 py-3 rounded text-sm font-bold hover:border-accent-blue hover:text-accent-blue hover:shadow-[0_0_12px_rgba(86,156,214,0.3)] transition-all duration-300 font-mono"
+            className="border-border text-text-primary hover:border-accent-blue hover:text-accent-blue rounded border px-6 py-3 font-mono text-sm font-bold transition-all duration-300 hover:shadow-[0_0_12px_rgba(86,156,214,0.3)]"
           >
             Contact Me
           </Link>
         </div>
 
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-[fadeInUp_1.2s_ease-out]">
-          <span className="text-text-muted text-xs font-mono animate-[blink_1.5s_step-end_infinite]">▼ scroll</span>
+          <span className="text-text-muted animate-[blink_1.5s_step-end_infinite] font-mono text-xs">
+            ▼ scroll
+          </span>
         </div>
       </section>
 
-      <section className="w-full max-w-4xl mx-auto py-16 animate-[fadeInUp_0.6s_ease-out]">
-        <div className="text-text-muted text-sm mb-6 font-mono">
+      <section className="mx-auto w-full max-w-4xl animate-[fadeInUp_0.6s_ease-out] py-16">
+        <div className="text-text-muted mb-6 font-mono text-sm">
           <span className="text-accent-green">❯</span> echo $TECH_STACK
         </div>
 
-        <div className="flex flex-wrap gap-3 justify-center">
+        <div className="flex flex-wrap justify-center gap-3">
           {[
             { name: "TypeScript", color: "#3178c6" },
             { name: "Python", color: "#3572A5" },
@@ -99,11 +110,11 @@ export default async function Home() {
           ].map((tech, i) => (
             <span
               key={tech.name}
-              className="bg-bg-secondary border border-border rounded px-4 py-2 text-sm font-mono text-text-primary hover:scale-105 hover:border-accent-blue transition-all duration-200"
+              className="bg-bg-secondary border-border text-text-primary hover:border-accent-blue rounded border px-4 py-2 font-mono text-sm transition-all duration-200 hover:scale-105"
               style={{ animation: `fadeInUp 0.3s ease-out ${0.05 * i}s both` }}
             >
               <span
-                className="inline-block w-2 h-2 rounded-full mr-2"
+                className="mr-2 inline-block h-2 w-2 rounded-full"
                 style={{ backgroundColor: tech.color }}
               />
               {tech.name}
@@ -112,53 +123,86 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="w-full max-w-4xl mx-auto pb-16 animate-[fadeInUp_0.6s_ease-out]">
-        <div className="text-text-muted text-sm mb-6 font-mono">
+      <section className="mx-auto w-full max-w-4xl animate-[fadeInUp_0.6s_ease-out] pb-16">
+        <div className="text-text-muted mb-6 font-mono text-sm">
           <span className="text-accent-green">❯</span> ./stats.sh
         </div>
 
         <div className="grid grid-cols-3 gap-4">
-          <div className="bg-bg-secondary border border-border rounded-lg p-5 text-center hover:border-accent-blue hover:shadow-[0_0_12px_rgba(86,156,214,0.2)] transition-all duration-300">
-            <div className="text-2xl sm:text-3xl font-bold text-accent-blue font-mono">{stats.public_repos}</div>
-            <div className="text-xs text-text-secondary mt-1 font-mono">Public Repos</div>
+          <div className="bg-bg-secondary border-border hover:border-accent-blue rounded-lg border p-5 text-center transition-all duration-300 hover:shadow-[0_0_12px_rgba(86,156,214,0.2)]">
+            <div className="text-accent-blue font-mono text-2xl font-bold sm:text-3xl">
+              {stats.public_repos}
+            </div>
+            <div className="text-text-secondary mt-1 font-mono text-xs">Public Repos</div>
           </div>
-          <div className="bg-bg-secondary border border-border rounded-lg p-5 text-center hover:border-accent-blue hover:shadow-[0_0_12px_rgba(86,156,214,0.2)] transition-all duration-300">
-            <div className="text-2xl sm:text-3xl font-bold text-accent-purple font-mono">{stats.total_stars}</div>
-            <div className="text-xs text-text-secondary mt-1 font-mono">Total Stars</div>
+          <div className="bg-bg-secondary border-border hover:border-accent-blue rounded-lg border p-5 text-center transition-all duration-300 hover:shadow-[0_0_12px_rgba(86,156,214,0.2)]">
+            <div className="text-accent-purple font-mono text-2xl font-bold sm:text-3xl">
+              {stats.total_stars}
+            </div>
+            <div className="text-text-secondary mt-1 font-mono text-xs">Total Stars</div>
           </div>
-          <div className="bg-bg-secondary border border-border rounded-lg p-5 text-center hover:border-accent-blue hover:shadow-[0_0_12px_rgba(86,156,214,0.2)] transition-all duration-300">
-            <div className="text-2xl sm:text-3xl font-bold text-accent-orange font-mono">{stats.followers}</div>
-            <div className="text-xs text-text-secondary mt-1 font-mono">Followers</div>
+          <div className="bg-bg-secondary border-border hover:border-accent-blue rounded-lg border p-5 text-center transition-all duration-300 hover:shadow-[0_0_12px_rgba(86,156,214,0.2)]">
+            <div className="text-accent-orange font-mono text-2xl font-bold sm:text-3xl">
+              {stats.followers}
+            </div>
+            <div className="text-text-secondary mt-1 font-mono text-xs">Followers</div>
           </div>
         </div>
       </section>
 
+      {/* GitHub Contributions */}
+      <section className="mx-auto w-full max-w-4xl animate-[fadeInUp_0.65s_ease-out] pb-16">
+        <div className="text-text-muted mb-4 font-mono text-sm">
+          <span className="text-accent-green">❯</span> git log --since=2025-06-01 --oneline | wc -l
+        </div>
+        <div className="bg-bg-secondary border-border overflow-x-auto rounded-lg border p-4">
+          <a
+            href="https://github.com/RanchMonster"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <img
+              src="https://ghchart.rshah.org/569cd6/RanchMonster"
+              alt="GitHub contribution chart"
+              className="w-full min-w-[600px]"
+              style={{ filter: "brightness(0.9)" }}
+            />
+          </a>
+        </div>
+        <p className="text-text-muted mt-2 text-center font-mono text-xs">Contributions in 2026</p>
+      </section>
+
       {repos.length > 0 && (
-        <section className="w-full max-w-4xl mx-auto pb-16 animate-[fadeInUp_0.7s_ease-out]">
-          <div className="text-text-muted text-sm mb-6 font-mono">
+        <section className="mx-auto w-full max-w-4xl animate-[fadeInUp_0.7s_ease-out] pb-16">
+          <div className="text-text-muted mb-6 font-mono text-sm">
             <span className="text-accent-green">❯</span> ls -la projects/ | head -3
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {repos.slice(0, 3).map((repo, i) => (
               <a
                 key={repo.name}
                 href={repo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-bg-secondary border border-border rounded-lg p-4 hover:border-accent-blue hover:shadow-[0_0_12px_rgba(86,156,214,0.15)] transition-all duration-300 block group"
+                className="bg-bg-secondary border-border hover:border-accent-blue group block rounded-lg border p-4 transition-all duration-300 hover:shadow-[0_0_12px_rgba(86,156,214,0.15)]"
                 style={{ animation: `fadeInUp 0.4s ease-out ${0.1 * i}s both` }}
               >
-                <h3 className="text-accent-blue font-bold text-sm mb-1 font-mono group-hover:underline">
-                  {repo.name} <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                <h3 className="text-accent-blue mb-1 font-mono text-sm font-bold group-hover:underline">
+                  {repo.name}{" "}
+                  <span className="opacity-0 transition-opacity group-hover:opacity-100">→</span>
                 </h3>
-                <p className="text-text-secondary text-xs mb-3 line-clamp-2 font-mono">
+                <p className="text-text-secondary mb-3 line-clamp-2 font-mono text-xs">
                   {repo.description || "No description"}
                 </p>
-                <div className="flex items-center gap-3 text-xs font-mono">
+                <div className="flex items-center gap-3 font-mono text-xs">
                   {repo.language && (
-                    <span className="flex items-center gap-1 text-text-secondary">
-                      <span className="inline-block w-2.5 h-2.5 rounded-full" style={{backgroundColor: getLanguageColor(repo.language)}} />
+                    <span className="text-text-secondary flex items-center gap-1">
+                      <span
+                        className="inline-block h-2.5 w-2.5 rounded-full"
+                        style={{ backgroundColor: getLanguageColor(repo.language) }}
+                      />
                       {repo.language}
                     </span>
                   )}
@@ -173,7 +217,7 @@ export default async function Home() {
           <div className="mt-6 text-center">
             <Link
               href="/projects"
-              className="text-xs text-text-secondary hover:text-accent-blue transition-colors font-mono"
+              className="text-text-secondary hover:text-accent-blue font-mono text-xs transition-colors"
             >
               View all {stats.public_repos} projects →
             </Link>
@@ -182,31 +226,14 @@ export default async function Home() {
       )}
 
       {events.length > 0 && (
-        <section className="w-full max-w-4xl mx-auto pb-20 animate-[fadeInUp_0.8s_ease-out]">
-          <div className="text-text-muted text-sm mb-6 font-mono">
+        <section className="mx-auto w-full max-w-4xl animate-[fadeInUp_0.8s_ease-out] pb-20">
+          <div className="text-text-muted mb-6 font-mono text-sm">
             <span className="text-accent-green">❯</span> tail -f activity.log
           </div>
 
           <div className="space-y-3">
             {events.map((event, i) => (
-              <div
-                key={event.id}
-                className="bg-bg-secondary border border-border rounded-lg p-4 flex items-start gap-3 hover:border-accent-blue transition-colors duration-200"
-                style={{ animation: `fadeInUp 0.4s ease-out ${0.1 * i}s both` }}
-              >
-                <span className="text-lg flex-shrink-0 mt-0.5">{event.emoji}</span>
-                <div>
-                  <p className="text-sm text-text-primary font-mono">{event.description}</p>
-                  <p className="text-xs text-text-muted mt-1 font-mono">
-                    {new Date(event.created_at).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
-                  </p>
-                </div>
-              </div>
+              <EventView key={event.id} event={event} index={i} />
             ))}
           </div>
 
@@ -215,7 +242,7 @@ export default async function Home() {
               href="https://github.com/RanchMonster"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-text-secondary hover:text-accent-blue transition-colors font-mono"
+              className="text-text-secondary hover:text-accent-blue font-mono text-xs transition-colors"
             >
               View all activity on GitHub →
             </a>
@@ -224,25 +251,25 @@ export default async function Home() {
       )}
 
       {events.length === 0 && (
-        <section className="w-full max-w-4xl mx-auto pb-20 text-center">
-          <p className="text-text-muted text-sm font-mono">No recent public activity</p>
+        <section className="mx-auto w-full max-w-4xl pb-20 text-center">
+          <p className="text-text-muted font-mono text-sm">No recent public activity</p>
         </section>
       )}
 
-      <section className="w-full max-w-4xl mx-auto py-20 text-center animate-[fadeInUp_0.8s_ease-out]">
-        <div className="text-text-muted text-sm mb-4 font-mono">
+      <section className="mx-auto w-full max-w-4xl animate-[fadeInUp_0.8s_ease-out] py-20 text-center">
+        <div className="text-text-muted mb-4 font-mono text-sm">
           <span className="text-accent-green">❯</span> ./contact.sh --quick
         </div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-3 font-mono">
+        <h2 className="text-text-primary mb-3 font-mono text-2xl font-bold sm:text-3xl">
           Let&apos;s Build Something
         </h2>
-        <p className="text-text-secondary text-sm mb-6 max-w-md mx-auto font-mono">
+        <p className="text-text-secondary mx-auto mb-6 max-w-md font-mono text-sm">
           Open to opportunities, collaboration, and new challenges.
         </p>
         <div className="flex items-center justify-center gap-4">
           <Link
             href="/contact"
-            className="bg-accent-blue text-black px-6 py-3 rounded font-bold text-sm hover:shadow-[0_0_16px_rgba(86,156,214,0.6)] transition-all duration-300 font-mono"
+            className="bg-accent-blue rounded px-6 py-3 font-mono text-sm font-bold text-black transition-all duration-300 hover:shadow-[0_0_16px_rgba(86,156,214,0.6)]"
           >
             Get In Touch
           </Link>
@@ -250,7 +277,7 @@ export default async function Home() {
             href="https://github.com/RanchMonster"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-border text-text-primary px-6 py-3 rounded text-sm font-bold hover:border-accent-blue hover:text-accent-blue transition-all duration-300 font-mono"
+            className="border-border text-text-primary hover:border-accent-blue hover:text-accent-blue rounded border px-6 py-3 font-mono text-sm font-bold transition-all duration-300"
           >
             View GitHub
           </a>
