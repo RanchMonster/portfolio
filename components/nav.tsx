@@ -21,25 +21,25 @@ export default function Nav() {
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
+    return pathname === href || pathname.startsWith(href + "/");
   };
 
   return (
-    <nav className="bg-bg-secondary border-b border-border flex items-stretch font-mono">
+    <nav className="bg-bg-secondary border-border flex items-stretch border-b font-mono">
       {/* Logo tab — always active */}
-      <div className="flex items-center px-4 py-2 bg-bg-primary border-t-2 border-accent-blue text-sm font-bold text-accent-blue mr-0">
+      <div className="bg-bg-primary border-accent-blue text-accent-blue flex items-center border-t-2 px-4 py-2 text-sm font-bold">
         Joshua Tucker
       </div>
 
       {/* Desktop tabs */}
-      <div className="hidden sm:flex items-stretch flex-1 overflow-x-auto">
+      <div className="hidden flex-1 items-stretch overflow-x-auto sm:flex">
         {links.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className={`flex items-center px-4 py-2 text-sm border-r border-border transition-colors ${
+            className={`border-border flex items-center border-r px-4 py-2 text-sm transition-colors ${
               isActive(link.href)
-                ? "bg-bg-primary border-t-2 border-t-accent-blue text-text-primary"
+                ? "bg-bg-primary border-t-accent-blue text-text-primary border-t-2"
                 : "bg-bg-tertiary text-text-secondary hover:text-text-primary hover:bg-bg-hover"
             }`}
           >
@@ -49,36 +49,39 @@ export default function Nav() {
       </div>
 
       {/* Spacer */}
-      <div className="hidden sm:flex flex-1 bg-bg-tertiary" />
+      <div className="bg-bg-tertiary hidden flex-1 sm:flex" />
 
       {/* Mobile hamburger */}
       <button
-        className="sm:hidden text-text-primary px-4 focus:outline-none ml-auto"
+        className="text-text-primary ml-auto px-4 focus:outline-none sm:hidden"
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle menu"
       >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          {menuOpen ? (
-            <path d="M6 18L18 6M6 6l12 12" />
-          ) : (
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          )}
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          {menuOpen ? <path d="M6 18L18 6M6 6l12 12" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
         </svg>
       </button>
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="absolute top-12 left-0 right-0 bg-bg-secondary border-b border-border z-50 sm:hidden">
+        <div className="bg-bg-secondary border-border absolute top-full right-0 left-0 z-50 border-b sm:hidden">
           <div className="flex flex-col">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className={`px-4 py-3 text-sm border-l-2 transition-colors ${
+                className={`border-l-2 px-4 py-3 text-sm transition-colors ${
                   isActive(link.href)
                     ? "border-l-accent-blue bg-bg-primary text-accent-blue"
-                    : "border-l-transparent text-text-secondary hover:text-text-primary"
+                    : "text-text-secondary hover:text-text-primary border-l-transparent"
                 }`}
               >
                 {link.label}

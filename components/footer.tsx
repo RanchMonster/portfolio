@@ -2,7 +2,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#007acc] text-white text-xs font-mono flex items-center justify-between px-4 py-1">
+    <footer className="bg-status-bar flex items-center justify-between px-4 py-1 font-mono text-xs text-white">
       {/* Left side */}
       <div className="flex items-center gap-3">
         <span className="flex items-center gap-1">
@@ -11,7 +11,7 @@ export default function Footer() {
           </svg>
           main
         </span>
-        <span>✨</span>
+        <span aria-hidden="true">✨</span>
         <span className="hidden sm:inline">0 errors 0 warnings</span>
       </div>
 

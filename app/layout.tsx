@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${jetbrainsMono.variable} h-full`}>
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-full flex-col">
         <Nav />
         {children}
         <Footer />
