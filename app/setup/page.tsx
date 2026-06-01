@@ -9,6 +9,7 @@ export default function Setup() {
 
          {/* Hardware Section */}
          <section className="mb-10 animate-[fadeInUp_0.6s_ease-out]">
+            <p className="text-text-muted text-xs mb-2 font-mono">// Machine Specs</p>
             <h2 className="text-xl font-bold text-text-primary mb-4 font-mono">Hardware</h2>
             <div className="bg-bg-secondary border border-border rounded-lg p-5 font-mono text-sm space-y-2">
                <div className="flex items-start gap-3">
@@ -72,6 +73,7 @@ export default function Setup() {
 
          {/* Peripherals Section */}
          <section className="mb-10 animate-[fadeInUp_0.7s_ease-out]">
+            <p className="text-text-muted text-xs mb-2 font-mono">// Desk Setup</p>
             <h2 className="text-xl font-bold text-text-primary mb-4 font-mono">Peripherals</h2>
             <div className="bg-bg-secondary border border-border rounded-lg p-5 font-mono text-sm space-y-2">
                <div className="flex items-start gap-3">
@@ -87,7 +89,7 @@ export default function Setup() {
                   <div>
                      <span className="text-accent-purple">Keyboard</span>
                      <span className="text-text-muted">: </span>
-                     <span className="text-text-primary">—</span>
+                     <span className="text-text-primary">Mode Envoy</span>
                   </div>
                </div>
                <div className="flex items-start gap-3">
@@ -95,7 +97,7 @@ export default function Setup() {
                   <div>
                      <span className="text-accent-purple">Mouse</span>
                      <span className="text-text-muted">: </span>
-                     <span className="text-text-primary">—</span>
+                     <span className="text-text-primary">G305</span>
                   </div>
                </div>
                <div className="flex items-start gap-3">
@@ -103,7 +105,7 @@ export default function Setup() {
                   <div>
                      <span className="text-accent-purple">Headphones</span>
                      <span className="text-text-muted">: </span>
-                     <span className="text-text-primary">—</span>
+                     <span className="text-text-primary">Alienware</span>
                   </div>
                </div>
             </div>
@@ -111,6 +113,7 @@ export default function Setup() {
 
          {/* Software Section */}
          <section className="mb-10 animate-[fadeInUp_0.8s_ease-out]">
+            <p className="text-text-muted text-xs mb-2 font-mono">// Dev Environment</p>
             <h2 className="text-xl font-bold text-text-primary mb-4 font-mono">Software</h2>
             <div className="bg-bg-secondary border border-border rounded-lg p-5 font-mono text-sm space-y-2">
                <div className="flex items-start gap-3">
@@ -142,7 +145,7 @@ export default function Setup() {
                   <div>
                      <span className="text-accent-purple">DE</span>
                      <span className="text-text-muted">: </span>
-                     <span className="text-text-primary">Cinnamon 6.6.7</span>
+                     <span className="text-text-primary">Cinnamon</span>
                   </div>
                </div>
                <div className="flex items-start gap-3">
@@ -197,14 +200,14 @@ export default function Setup() {
          </section>
 
          {/* Photo placeholder */}
-         <section className="animate-[fadeInUp_0.9s_ease-out]">
-            <h2 className="text-xl font-bold text-text-primary mb-4 font-mono">Gallery</h2>
-            <div className="bg-bg-secondary border border-border border-dashed rounded-lg p-12 text-center">
-               <span className="text-text-muted text-sm font-mono">
-                  📷 setup photo goes here
-               </span>
-            </div>
-         </section>
+         {/* <section className="animate-[fadeInUp_0.9s_ease-out]"> */}
+         {/*    <h2 className="text-xl font-bold text-text-primary mb-4 font-mono">Gallery</h2> */}
+         {/*    <div className="bg-bg-secondary border border-border border-dashed rounded-lg p-12 text-center"> */}
+         {/*       <span className="text-text-muted text-sm font-mono"> */}
+         {/*          📷 setup photo goes here */}
+         {/*       </span> */}
+         {/*    </div> */}
+         {/* </section> */}
       </main>
    );
 }

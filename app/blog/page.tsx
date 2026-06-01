@@ -10,6 +10,7 @@ export default async function Blog() {
         <span className="text-accent-green">❯</span> cat /var/log/blog
       </div>
 
+      <p className="text-text-muted text-xs mb-2 font-mono">// Thoughts & Writings</p>
       <h1 className="text-3xl font-bold text-accent-blue mb-8 animate-[fadeInUp_0.5s_ease-out]">Blog</h1>
 
       {posts.length === 0 && (

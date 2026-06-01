@@ -45,6 +45,7 @@ export default function Experience() {
         <span className="text-accent-green">❯</span> cat experience.log
       </div>
 
+      <p className="text-text-muted text-xs mb-2 font-mono">// Professional Background</p>
       <h1 className="text-3xl font-bold text-accent-blue mb-8 animate-[fadeInUp_0.5s_ease-out]">Experience</h1>
 
       <div className="relative animate-[fadeInUp_0.6s_ease-out]">
@@ -72,6 +73,7 @@ export default function Experience() {
       </div>
 
       <section className="mt-12 animate-[fadeInUp_0.7s_ease-out]">
+        <p className="text-text-muted text-xs mb-2 font-mono">// Academic History</p>
         <h2 className="text-2xl font-bold text-accent-blue mb-6 font-mono">Education</h2>
         <div className="space-y-4">
           {education.map((edu, i) => (

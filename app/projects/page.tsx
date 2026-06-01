@@ -31,6 +31,7 @@ export default async function Projects() {
         <span className="text-accent-green">❯</span> find . -type d -name &quot;projects&quot;
       </div>
 
+      <p className="text-text-muted text-xs mb-2 font-mono">// Open Source Work</p>
       <h1 className="text-3xl font-bold text-accent-blue mb-2 animate-[fadeInUp_0.5s_ease-out]">Projects</h1>
 
       {!error && repos && repos.length > 0 && (

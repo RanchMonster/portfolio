@@ -56,6 +56,7 @@ export default function About() {
       </section>
 
       <section className="mb-10">
+        <p className="text-text-muted text-xs mb-2 font-mono">// Tools & Technologies</p>
         <h2 className="text-xl font-bold text-text-primary mb-4 font-mono animate-[fadeInUp_0.7s_ease-out]">Skills</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {skills.map((skill, i) => (
@@ -71,6 +72,7 @@ export default function About() {
       </section>
 
       <section className="animate-[fadeInUp_0.8s_ease-out]">
+        <p className="text-text-muted text-xs mb-2 font-mono">// What I'm exploring</p>
         <h2 className="text-xl font-bold text-text-primary mb-4 font-mono">Current Focus</h2>
         <div className="bg-bg-secondary border border-border rounded-lg p-4 font-mono text-sm text-text-secondary">
           <span className="text-accent-green">// Currently exploring</span><br />
