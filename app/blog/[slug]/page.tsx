@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { remark } from "remark";
-import html from "remark-html";
-import { getPost, getPostSlugs } from "@/lib/markdown";
+import { getPost } from "@/lib/markdown";
+import { renderMarkdown } from "@/lib/markdown-render";
+import "./render.css";
 
 export function generateStaticParams() {
    return [];
@@ -25,8 +25,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       );
    }
 
-   const processed = await remark().use(html).process(post.content);
-   const contentHtml = processed.toString();
+   const contentHtml = await renderMarkdown(post.content);
    console.log(contentHtml);
 
    return (
