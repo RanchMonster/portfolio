@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { getPost } from "@/lib/markdown";
+import { getPost, getPostSlugs } from "@/lib/markdown";
 import { renderMarkdown } from "@/lib/markdown-render";
 import "./render.css";
 
 export function generateStaticParams() {
-   return [];
+   return getPostSlugs().map((slug) => ({ slug }));
 }
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
@@ -26,7 +26,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
    }
 
    const contentHtml = await renderMarkdown(post.content);
-   console.log(contentHtml);
+   // console.log(contentHtml);
 
    return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-12">
