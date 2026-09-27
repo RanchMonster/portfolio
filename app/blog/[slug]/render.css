@@ -5,3 +5,49 @@ article h2 {
 article h3 {
   scroll-margin-top: 2rem;
 }
+
+article .code-figure {
+  margin: 1.5rem 0;
+}
+
+article .code-header {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem 0.85rem;
+  background: #252526;
+  border: 1px solid #3c3c3c;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+}
+
+article .code-lang {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #6a9955;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+}
+
+article .code-lang::before {
+  content: "❯ ";
+  color: #569cd6;
+}
+
+article pre.shiki {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid #3c3c3c;
+  border-radius: 0 0 6px 6px;
+  overflow-x: auto;
+}
+
+article pre.shiki code {
+  counter-reset: none;
+}
+
+article code.shiki {
+  border: 1px solid #3c3c3c;
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
