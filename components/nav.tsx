@@ -47,8 +47,6 @@ export default function Nav() {
             ))}
          </div>
 
-         {/* Spacer */}
-         <div className="bg-bg-tertiary hidden flex-1 sm:flex" />
 
          {/* Mobile hamburger */}
          <button
