@@ -26,7 +26,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
    }
 
    const contentHtml = await renderMarkdown(post.content);
-   // console.log(contentHtml);
 
    return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-12">
