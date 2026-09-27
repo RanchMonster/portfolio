@@ -110,7 +110,7 @@ A few things I'd tell myself if I were doing this again:
 
 This portfolio is open source (obviously). If you're reading this and building your own, I hope this post gave you some ideas. Use the tools that make you productive. Steal the color palette if you want. And for the love of everything, use a monospace font.
 
-```
+```sh
 ❯ echo "Thanks for reading"
 Thanks for reading
 ```
